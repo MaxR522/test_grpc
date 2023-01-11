@@ -1,0 +1,27 @@
+{
+  "name": "test_grpc",
+  "version": "1.0.0",
+  "description": "To test grpc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxR522/test_grpc.git"
+  },
+  "keywords": [
+    "node",
+    "grpc",
+    "protobuff"
+  ],
+  "author": "Mario RANDRIANOMEARISOA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaxR522/test_grpc/issues"
+  },
+  "homepage": "https://github.com/MaxR522/test_grpc#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.2"
+  }
+}

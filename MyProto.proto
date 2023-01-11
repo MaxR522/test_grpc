@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service EmojiService {
+    rpc GetOneEmoji (EmojiId) returns (OneEmojiResponse);
+    rpc GetAllEmoji (Empty) returns (AllEmojiResponse);
+}
+
+message EmojiId {
+    int32 id = 1;
+}
+
+message OneEmojiResponse {
+    int32 id = 1;
+    string emoji = 2;
+}
+
+message Empty {}
+
+message AllEmojiResponse {
+    repeated OneEmojiResponse emojis = 1;
+}
