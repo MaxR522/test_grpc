@@ -17,8 +17,7 @@ const emojiProto = grpc.loadPackageDefinition(packageDefinition);
 const server = new grpc.Server();
 
 server.addService(emojiProto.EmojiService.service, {
-    GetAllEmoji: (smt, callback) => {
-        console.log(smt);
+    GetAllEmoji: (_, callback) => {
         callback(null, { emojis: data.data });
     },
 
