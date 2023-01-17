@@ -22,8 +22,11 @@ server.addService(emojiProto.EmojiService.service, {
     },
 
     GetOneEmoji: (parameter, callback) => {
+        if (typeof parameter.request.id !== 'number' || parameter.request.id <= 0) {
+            return callback(new Error('Invalid input, id should be an integer'), null);
+        }
         callback(
-            null,
+            undefined,
             data.data.find((element) => element?.id === parameter?.request.id) ?? {
                 id: 0,
                 emoji: 'TSY MISY FA TENA VENDRANA',

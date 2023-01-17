@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/MaxR522/test_grpc#readme",
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.2"
+    "@grpc/grpc-js": "^1.8.1"
   }
 }

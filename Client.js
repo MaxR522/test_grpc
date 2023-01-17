@@ -14,9 +14,14 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, options);
 
 const EmojiService = grpc.loadPackageDefinition(packageDefinition).EmojiService;
 
-const client = new EmojiService('localhost:8000', grpc.credentials.createInsecure());
+const client = new EmojiService('127.0.0.1:8000', grpc.credentials.createInsecure());
+
+client.GetOneEmoji({id: 2}, (error, emoji) => {
+    console.log(error)
+    console.log(emoji)
+})
 
 client.GetAllEmoji({}, (error, emoji) => {
     console.log(error)
-    console.log(emoji);
-});
+    console.log(emoji)
+})
