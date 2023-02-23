@@ -17,21 +17,27 @@ const emojiProto = grpc.loadPackageDefinition(packageDefinition);
 const server = new grpc.Server();
 
 server.addService(emojiProto.EmojiService.service, {
-    GetAllEmoji: (_, callback) => {
-        callback(null, { emojis: data.data });
-    },
-
-    GetOneEmoji: (parameter, callback) => {
-        if (typeof parameter.request.id !== 'number' || parameter.request.id <= 0) {
+    /**
+     * @param {*} call call contains metadata and properties related to the request, such as the request payload and the client's metadata.
+     * @param {*} callback The callback functions are used to send the response back to the client, and they are passed two arguments: an error and the response message
+     * @returns 
+     */
+    GetOneEmoji: (call, callback) => {
+        const id = call.request.id;
+        if (typeof id !== 'number' || id <= 0) {
             return callback(new Error('Invalid input, id should be an integer'), null);
         }
         callback(
             undefined,
-            data.data.find((element) => element?.id === parameter?.request.id) ?? {
+            data.data.find((element) => element?.id === id) ?? {
                 id: 0,
                 emoji: 'TSY MISY FA TENA VENDRANA',
             }
         );
+    },
+
+    GetAllEmoji: (_, callback) => {
+        callback(null, { emojis: data.data });
     },
 });
 
